@@ -6,3 +6,5 @@ lazy val root = (project in file("."))
   .settings(
     name := "scala-beginner"
   )
+
+libraryDependencies += "org.typelevel" %% "cats-core" % "2.2.0"
