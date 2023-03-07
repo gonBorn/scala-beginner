@@ -4,6 +4,7 @@ import cats.Show
 import AreaInstances.rectangleArea
 import InterfaceSyntaxDemo.ShapeAreaOps
 import cats.implicits.toShow
+import catsExec.TypeClassDemo.JsonWriterInstances.stringWriter
 
 import java.util.Date
 
@@ -16,7 +17,14 @@ object TypeClassDemo extends App {
 
   println(Show[Rectangle].show(Rectangle(2, 3)))
 
-  implicit val customShow: Show[Date] = Show.show(date => s"${date.getTime}ms since the epoch")
+  implicit val customShow: Show[Date] = date => s"${date.getTime}ms since the epoch"
 
   println(new Date().show)
+
+  // scala标准库提供了implicitly来召唤隐式变量，可以在debug的时候使用确保编译器找到了正确的变量
+  println(implicitly[JsonWriter[String]])
+
+  // implicit 必须定义在object或trait中
+
+  println(1.show)
 }
