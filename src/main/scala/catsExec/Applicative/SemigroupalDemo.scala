@@ -39,6 +39,7 @@ object SemigroupalDemo {
     // Some(Password(1,2,3))
     // mapN 使用了Semigroupal将数值从Option中抽出
     println((Option(1), Option(2), Option(3)).mapN(Password.apply))
+    println((Option(1), Option(2), Option(3)).mapN(_ + _ + _))
 
     println(Pet("Garfield", 1978, List("Lasagne")) |+| Pet("Garfield", 1978, List("Lasagne")))
 
