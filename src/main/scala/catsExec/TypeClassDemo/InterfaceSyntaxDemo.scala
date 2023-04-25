@@ -18,5 +18,8 @@ object InterfaceSyntaxDemo {
     val rectangle = Rectangle(1, 2)
     println(rectangle.areaOf)
     println(rectangle.toJson)
+
+    println(List(1, 2) ::: List(3, 4, 5))
+    println(1 :: List(3, 4, 5))
   }
 }
