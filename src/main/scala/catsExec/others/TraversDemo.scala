@@ -23,4 +23,23 @@ object TraversDemo {
 
   def demo3(option1: Option[Int], option2: Option[Int]): IO[Option[(Int, Int)]] =
     (option1, option2).traverseN((option1, option2) => IO.pure(option1, option2))
+
+  private val ints: Set[String] = Set("123", "1233")
+
+  println(ints("123"))
+}
+
+object TraverseExample {
+  def main(args: Array[String]): Unit = {
+    val numbers: List[Int] = List(1, 2, 3, 4, 5)
+
+    val doubledNumbersList: Option[List[Int]] = numbers.traverse(doubleAndWrapInOption)
+
+    println(doubledNumbersList)
+  }
+
+  private def doubleAndWrapInOption(n: Int): Option[Int] = {
+    if (n >= 0) Some(n * 2)
+    else None
+  }
 }
