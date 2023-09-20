@@ -1,6 +1,7 @@
 package catsExec.DataType
 
 import cats.effect.IO
+import cats.effect.unsafe.implicits.global
 
 object IODemo extends App {
   val value: IO[Unit] = IO {

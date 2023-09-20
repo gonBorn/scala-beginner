@@ -1,6 +1,7 @@
 package catsExec.others
 
 import cats.effect.IO
+import cats.effect.unsafe.implicits.global
 import cats.implicits._
 
 object TraversDemo {
