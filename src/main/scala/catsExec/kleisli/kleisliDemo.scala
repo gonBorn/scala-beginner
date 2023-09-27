@@ -23,4 +23,14 @@ object kleisliDemo extends App {
 
   val parseAndReciprocal: Kleisli[Option, String, Double] =
     reciprocal.compose(parse)
+
+  // Example for book
+  // A => F[B] andThen B => F[C] andThen C => F[B]
+  // A => F[C]
+
+  val step1: Kleisli[List, Int, Int] = Kleisli(x => List(x, x + 1))
+  val step2: Kleisli[List, Int, Int] = Kleisli(x => List(2 * x, 3 * x))
+
+  private val pipeline: Kleisli[List, Int, Int] = step1 andThen step2
+  println(pipeline.run(1))
 }
