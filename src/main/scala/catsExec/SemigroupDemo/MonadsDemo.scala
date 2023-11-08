@@ -24,6 +24,10 @@ object MonadsDemo extends App {
     c <- chars
   } yield (n, c)
 
+  private val filteredSeq: Seq[Int] = for (x <- Seq(-2, -1, 0, 1, 2) if x > 0) yield x
+
+  println(s"filteredSeq: $filteredSeq")
+
 //  import cats.instances.list._
   val listMonad: Monad[List] = Monad[List]
   println(listMonad.pure(3))
