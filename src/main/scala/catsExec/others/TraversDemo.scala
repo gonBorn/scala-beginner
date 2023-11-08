@@ -33,10 +33,15 @@ object TraversDemo {
 object TraverseExample {
   def main(args: Array[String]): Unit = {
     val numbers: List[Int] = List(1, 2, 3, 4, 5)
-
+    // traverse
     val doubledNumbersList: Option[List[Int]] = numbers.traverse(doubleAndWrapInOption)
-
     println(doubledNumbersList)
+
+    val nestedList = List(List(1, 2), List(3, 4, 5), List(6))
+
+    // 使用flatten方法将嵌套列表展平为单层列表
+    println(s"flatten: ${nestedList.flatten}")
+    println(s"flatten: ${List(Option(1), None).flatten}")
   }
 
   private def doubleAndWrapInOption(n: Int): Option[Int] = {
