@@ -12,5 +12,11 @@ object patternMatch {
     println(judge(Some("ze")))
     println(judge(Some("")))
     println(judge(None))
+
+    val isExpectedList = List(1, 2, 3) match {
+      case first :: second :: _ => first == 1 && second == 2
+      case _ => false
+    }
+    println(isExpectedList)
   }
 }
