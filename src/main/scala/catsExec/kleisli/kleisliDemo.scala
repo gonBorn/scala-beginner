@@ -15,6 +15,7 @@ object kleisliDemo extends App {
   println(twiceAsManyCats(1))
 
   // Refer to https://typelevel.org/cats/datatypes/kleisli.html
+  // kleisli将两个返回monad的函数组合起来
   val parse: Kleisli[Option, String, Int] =
     Kleisli((s: String) => if (s.matches("-?[0-9]+")) Some(s.toInt) else None)
 

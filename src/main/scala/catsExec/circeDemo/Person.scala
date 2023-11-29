@@ -3,7 +3,7 @@ package catsExec.circeDemo
 import io.circe.syntax.EncoderOps
 import io.circe.{Encoder, Json}
 
-case class Person(name: String, age: Int, pet: Pet = Cat)
+case class Person(name: String, age: Int, pet: Pet = Cat, attr: List[Int] = Nil)
 
 object Person {
   implicit val encoder: Encoder[Person] = p => {
