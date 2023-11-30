@@ -16,11 +16,11 @@ object Pet {
     case _: String => Left("error")
   }
 
-  implicit val decoder: Decoder[Pet] = Decoder[String].map {
-    case "cat" => Cat
-    case "dog" => Dog
-    case _: String => Other("error")
-  }
+//  implicit val decoder2: Decoder[Pet] = Decoder[String].map {
+//    case "cat" => Cat
+//    case "dog" => Dog
+//    case _: String => Other("error")
+//  }
 
   implicit val encoder: Encoder[Pet] = Encoder[String].contramap {
     case Cat => "cat"
