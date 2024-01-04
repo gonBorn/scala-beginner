@@ -32,6 +32,10 @@ object FlatMapExample {
     val value: List[String] = List(stu, stu).flatMap(a => a.attr.toList)
     println(value)
     println(stuJson.as[Stu])
+
+    val mapExample = Map("111" -> 1, "222" -> 2)
+    val mapFilterDemo = List(stu, stu.copy(name = "333")).mapFilter(s => mapExample.get(s.name))
+    println(s"map filter example (exclude the value that is not in map) $mapFilterDemo")
   }
 
   // string转instant可能抛异常有副作用

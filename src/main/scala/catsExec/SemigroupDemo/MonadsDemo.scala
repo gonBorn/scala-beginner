@@ -19,10 +19,13 @@ object MonadsDemo extends App {
   // create all combinations of (number, char)
 
   val value: List[(Int, Char)] = numbers.flatMap(n => chars.map(c => (n, c)))
-  for {
+  private val value1: List[(Int, Char)] = for {
     n <- numbers
     c <- chars
   } yield (n, c)
+
+  println("for yield")
+  println(value1)
 
 //  import cats.instances.list._
   val listMonad: Monad[List] = Monad[List]
