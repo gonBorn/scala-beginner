@@ -10,6 +10,7 @@ val myDependencies = Seq(
   "io.circe" %% "circe-generic" % circeVersion,
   "io.circe" %% "circe-parser" % circeVersion,
   "io.circe" %% "circe-literal" % circeVersion,
+  "io.circe" %% "circe-yaml" % "0.15.1",
   "org.typelevel" %% "cats-core" % "2.9.0",
   "org.typelevel" %% "cats-effect" % "3.4.8",
   "org.specs2" %% "specs2-core" % specs2Version % "test",
