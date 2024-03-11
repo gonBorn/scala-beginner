@@ -1,7 +1,5 @@
 package catsExec.TypeClassDeduction
 
-import catsExec.TypeClassDeduction.TypeClassDemo.SubSyntax.AddOps
-
 object TypeClassDemo {
   // 可以把函数类型包裹在trait里
 
@@ -22,7 +20,7 @@ object TypeClassDemo {
   }
 
   object SubSyntax {
-    implicit class AddOps[A](v: A)(implicit f: SubInterface[A]) {
+    implicit class SubOps[A](v: A)(implicit f: SubInterface[A]) {
       def sub(delta: Int): A = f.sub(v, delta)
     }
   }
@@ -37,6 +35,10 @@ object TypeClassDemo {
   }
 
   def main(args: Array[String]): Unit = {
+    import catsExec.TypeClassDeduction.TypeClassDemo.SubSyntax.SubOps
     println(Age2(2).sub(1))
+
+    import catsExec.TypeClassDeduction.TypeClassDemo.AddSyntax.AddOps
+    println(Age2(2).add(1))
   }
 }

@@ -20,7 +20,7 @@ object Person {
 }
 
 object Main extends App {
-  // Age(0) 会被看做 AgeOps(Age2(0))
+  // Age2(0) 会被看做 AgeOps(Age2(0))
   println(Age2(0).add(2))
 
   //这里展现出了痛点2，如果隐式类中的方法签名改了，这个方法就挂了
